@@ -1,41 +1,72 @@
-const menuButton = document.getElementById('menuButton');
-const siteNav = document.getElementById('siteNav');
+/* Small, dependency-free interactions for the static portfolio. */
+(function () {
+  "use strict";
 
-menuButton.addEventListener('click', () => {
-  const isOpen = siteNav.classList.toggle('open');
-  menuButton.setAttribute('aria-expanded', String(isOpen));
-  menuButton.setAttribute('aria-label', isOpen ? 'Close navigation' : 'Open navigation');
-  menuButton.textContent = isOpen ? '×' : '☰';
-});
+  var root = document.documentElement;
+  var header = document.querySelector("[data-header]");
+  var menuToggle = document.querySelector("[data-menu-toggle]");
+  var siteNav = document.querySelector("[data-site-nav]");
+  var navLinks = siteNav ? siteNav.querySelectorAll("a") : [];
 
-siteNav.querySelectorAll('a').forEach((link) => {
-  link.addEventListener('click', () => {
-    siteNav.classList.remove('open');
-    menuButton.setAttribute('aria-expanded', 'false');
-    menuButton.setAttribute('aria-label', 'Open navigation');
-    menuButton.textContent = '☰';
-  });
-});
+  /* Adding .js only after the script has loaded keeps every section visible if JS fails. */
+  root.classList.add("js");
 
-document.getElementById('year').textContent = new Date().getFullYear();
+  if (menuToggle && siteNav) {
+    var closeMenu = function (restoreFocus) {
+      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.setAttribute("aria-label", "Open navigation");
+      siteNav.classList.remove("is-open");
+      document.body.style.overflow = "";
+      if (restoreFocus) menuToggle.focus();
+    };
 
-// Reveal content as it enters the viewport.
-document.body.classList.add('animations-ready');
-const animatedItems = document.querySelectorAll('.section:not(.hero), .card, .achievement-groups > div, .photo-placeholder');
+    menuToggle.addEventListener("click", function () {
+      var isOpen = menuToggle.getAttribute("aria-expanded") === "true";
+      menuToggle.setAttribute("aria-expanded", String(!isOpen));
+      menuToggle.setAttribute("aria-label", isOpen ? "Open navigation" : "Close navigation");
+      siteNav.classList.toggle("is-open", !isOpen);
+      document.body.style.overflow = isOpen ? "" : "hidden";
+    });
 
-if ('IntersectionObserver' in window) {
-  const revealObserver = new IntersectionObserver((entries, observer) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('is-visible');
-        observer.unobserve(entry.target);
+    navLinks.forEach(function (link) {
+      link.addEventListener("click", function () {
+        closeMenu(false);
+      });
+    });
+
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && menuToggle.getAttribute("aria-expanded") === "true") {
+        closeMenu(true);
       }
     });
-  }, { threshold: 0.12 });
-  animatedItems.forEach((item, index) => {
-    item.style.transitionDelay = `${(index % 3) * 90}ms`;
-    revealObserver.observe(item);
-  });
-} else {
-  animatedItems.forEach((item) => item.classList.add('is-visible'));
-}
+
+    window.addEventListener("resize", function () {
+      if (window.innerWidth > 800 && menuToggle.getAttribute("aria-expanded") === "true") {
+        closeMenu(false);
+      }
+    });
+  }
+
+  if (header) {
+    var updateHeader = function () {
+      header.classList.toggle("scrolled", window.scrollY > 18);
+    };
+    updateHeader();
+    window.addEventListener("scroll", updateHeader, { passive: true });
+  }
+
+  var revealItems = document.querySelectorAll(".reveal");
+  if ("IntersectionObserver" in window && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    var revealObserver = new IntersectionObserver(function (entries, observer) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -35px" });
+    revealItems.forEach(function (item) { revealObserver.observe(item); });
+  } else {
+    revealItems.forEach(function (item) { item.classList.add("is-visible"); });
+  }
+}());
