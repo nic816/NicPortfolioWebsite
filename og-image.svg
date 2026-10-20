@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="Nicholas Cheok — Business, Technology and Robotics">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#07111f"/>
+      <stop offset="1" stop-color="#0b1a2d"/>
+    </linearGradient>
+    <pattern id="grid" width="64" height="64" patternUnits="userSpaceOnUse">
+      <path d="M64 0H0V64" fill="none" stroke="rgba(169,196,222,0.08)" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  <rect x="56" y="56" width="1088" height="518" fill="none" stroke="rgba(169,196,222,0.3)" stroke-width="1"/>
+  <text x="96" y="130" fill="#77bcff" font-family="'SFMono-Regular',Consolas,monospace" font-size="22" letter-spacing="4">SINGAPORE  /  PORTFOLIO 2026</text>
+  <text x="92" y="320" fill="#e8f0f8" font-family="'Avenir Next','Segoe UI',sans-serif" font-size="118" font-weight="700" letter-spacing="-6">Make the system</text>
+  <text x="92" y="440" fill="#77bcff" font-family="'Avenir Next','Segoe UI',sans-serif" font-size="118" font-weight="700" letter-spacing="-6">work better.</text>
+  <text x="96" y="540" fill="#9aaabd" font-family="'SFMono-Regular',Consolas,monospace" font-size="24" letter-spacing="2">Nicholas Cheok — Business &#215; Technology &#215; Robotics</text>
+  <g>
+    <rect x="980" y="92" width="124" height="124" fill="none" stroke="#4da3ff" stroke-width="2"/>
+    <text x="1042" y="162" fill="#77bcff" font-family="'Avenir Next','Segoe UI',sans-serif" font-size="58" font-weight="700" letter-spacing="-4" text-anchor="middle">NC</text>
+    <rect x="1096" y="84" width="14" height="14" fill="#b7f36b"/>
+  </g>
+</svg>

@@ -9,6 +9,10 @@
       content="The portfolio of Nicholas Cheok, a Business and Financial Technology student, robotics competitor and robotics coach in Singapore."
     />
     <meta name="theme-color" content="#07111f" />
+    <meta name="author" content="Nicholas Cheok" />
+    <link rel="canonical" href="https://nic816.github.io/NicPortfolioWebsite/" />
+
+    <!-- Open Graph -->
     <meta
       property="og:title"
       content="Nicholas Cheok — Business, Technology & Robotics"
@@ -18,14 +22,74 @@
       content="Business and Financial Technology student. Robotics competitor. Robotics coach."
     />
     <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_SG" />
+    <meta property="og:site_name" content="Nicholas Cheok" />
+    <meta
+      property="og:url"
+      content="https://nic816.github.io/NicPortfolioWebsite/"
+    />
+    <meta property="og:image" content="./og-image.svg" />
+    <meta property="og:image:alt" content="Nicholas Cheok — portfolio" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Nicholas Cheok — Business, Technology & Robotics"
+    />
+    <meta
+      name="twitter:description"
+      content="Business and Financial Technology student. Robotics competitor. Robotics coach."
+    />
+    <meta name="twitter:image" content="./og-image.svg" />
+
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     <link rel="stylesheet" href="./style.css" />
     <script src="./script.js" defer></script>
+
+    <!-- Structured data: helps search engines understand who this is -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Nicholas Cheok",
+        "url": "https://nic816.github.io/NicPortfolioWebsite/",
+        "image": "https://nic816.github.io/NicPortfolioWebsite/og-image.svg",
+        "jobTitle": "Robotics Coach",
+        "description": "Business and Financial Technology student, robotics competitor and robotics coach in Singapore.",
+        "nationality": "Singapore",
+        "homeLocation": {
+          "@type": "Place",
+          "name": "Singapore"
+        },
+        "alumniOf": {
+          "@type": "CollegeOrUniversity",
+          "name": "Nanyang Polytechnic"
+        },
+        "worksFor": {
+          "@type": "Organization",
+          "name": "School of Robotics"
+        },
+        "knowsAbout": [
+          "Business software",
+          "Backend operations",
+          "Robotics",
+          "Problem-solving",
+          "Systems thinking"
+        ],
+        "email": "mailto:nicholascheok816@gmail.com",
+        "sameAs": [
+          "https://www.linkedin.com/in/nicholasc08",
+          "https://github.com/nic816"
+        ]
+      }
+    </script>
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to content</a>
 
     <header class="site-header" data-header>
+      <div class="scroll-progress" data-scroll-progress aria-hidden="true"></div>
       <div class="container nav-wrap">
         <a class="wordmark" href="#top" aria-label="Nicholas Cheok home">
           <span class="wordmark-mark">NC</span>
@@ -50,6 +114,7 @@
           <a href="#about">About <span>01</span></a>
           <a href="#experience">Experience <span>02</span></a>
           <a href="#achievements">Achievements <span>03</span></a>
+          <a href="#gallery">Field notes <span>04</span></a>
           <a class="nav-contact" href="#contact"
             >Get in touch <span class="arrow">↗</span></a
           >
