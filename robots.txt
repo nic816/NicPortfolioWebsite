@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://nic816.github.io/NicPortfolioWebsite/sitemap.xml

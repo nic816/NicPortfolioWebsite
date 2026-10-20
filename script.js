@@ -47,12 +47,60 @@
     });
   }
 
+  var progressBar = document.querySelector("[data-scroll-progress]");
+
   if (header) {
     var updateHeader = function () {
       header.classList.toggle("scrolled", window.scrollY > 18);
+
+      if (progressBar) {
+        var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        var progress = docHeight > 0 ? (window.scrollY / docHeight) * 100 : 0;
+        progressBar.style.width = progress + "%";
+      }
     };
     updateHeader();
     window.addEventListener("scroll", updateHeader, { passive: true });
+    window.addEventListener("resize", updateHeader, { passive: true });
+  }
+
+  /* Highlight the nav link for the section currently in view. */
+  var sectionLinks = [];
+  navLinks.forEach(function (link) {
+    var href = link.getAttribute("href") || "";
+    if (href.charAt(0) === "#" && href.length > 1) {
+      var target = document.getElementById(href.slice(1));
+      if (target) sectionLinks.push({ link: link, target: target });
+    }
+  });
+
+  if (sectionLinks.length && "IntersectionObserver" in window) {
+    var setActive = function (activeLink) {
+      sectionLinks.forEach(function (entry) {
+        var isActive = entry.link === activeLink;
+        entry.link.classList.toggle("is-active", isActive);
+        if (isActive) {
+          entry.link.setAttribute("aria-current", "true");
+        } else {
+          entry.link.removeAttribute("aria-current");
+        }
+      });
+    };
+
+    var navObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          for (var i = 0; i < sectionLinks.length; i++) {
+            if (sectionLinks[i].target === entry.target) {
+              setActive(sectionLinks[i].link);
+              break;
+            }
+          }
+        }
+      });
+    }, { rootMargin: "-45% 0px -50% 0px", threshold: 0 });
+
+    sectionLinks.forEach(function (entry) { navObserver.observe(entry.target); });
   }
 
   var revealItems = document.querySelectorAll(".reveal");

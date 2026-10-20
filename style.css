@@ -50,6 +50,7 @@ section[id] { scroll-margin-top: 106px; }
   border-bottom: 1px solid transparent; transition: background .3s ease, border-color .3s ease;
 }
 .site-header.scrolled { background: rgba(7, 17, 31, .9); border-color: var(--line); backdrop-filter: blur(16px); }
+.scroll-progress { position: absolute; left: 0; bottom: -1px; height: 2px; width: 0; background: var(--signal); transition: width .1s linear; pointer-events: none; }
 .nav-wrap { height: 82px; display: flex; align-items: center; justify-content: space-between; }
 .wordmark { display: inline-flex; align-items: center; gap: 12px; font-family: var(--display); font-weight: 700; letter-spacing: -.03em; }
 .wordmark-mark {
@@ -60,6 +61,9 @@ section[id] { scroll-margin-top: 106px; }
 .site-nav { display: flex; align-items: center; gap: 35px; font-family: var(--mono); font-size: 10px; letter-spacing: .08em; text-transform: uppercase; }
 .site-nav a { color: var(--muted); transition: color .2s ease; }
 .site-nav a:hover, .site-nav a:focus-visible { color: var(--ink); }
+.site-nav a.is-active { color: var(--signal); }
+.site-nav a.is-active span { color: var(--signal); }
+.site-nav .nav-contact.is-active { color: var(--navy); }
 .site-nav a span { color: var(--faint); margin-left: 5px; }
 .site-nav .nav-contact { padding: 10px 15px; color: var(--navy); background: var(--signal); }
 .site-nav .nav-contact:hover, .site-nav .nav-contact:focus-visible { color: var(--navy); background: var(--blue-bright); }
