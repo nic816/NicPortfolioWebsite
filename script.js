@@ -112,7 +112,7 @@
           observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.12, rootMargin: "0px 0px -35px" });
+    }, { threshold: 0.08, rootMargin: "0px 0px 60px" });
     revealItems.forEach(function (item) { revealObserver.observe(item); });
   } else {
     revealItems.forEach(function (item) { item.classList.add("is-visible"); });
