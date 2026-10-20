@@ -30,9 +30,10 @@ python3 -m http.server 8000
 
 ## Deployment
 
-Pushes to `main` deploy automatically to GitHub Pages via
-`.github/workflows/deploy.yml`. Enable it once under
-**Settings → Pages → Build and deployment → Source: GitHub Actions**.
+Served by GitHub Pages directly from the `main` branch (no build step):
+**Settings → Pages → Build and deployment → Source: Deploy from a branch →
+Branch: `main` / `(root)`**. Any push to `main` republishes the site at
+<https://nic816.github.io/NicPortfolioWebsite/>.
 
 ## Accessibility & progressive enhancement
 
