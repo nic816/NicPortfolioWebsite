@@ -44,6 +44,15 @@
     <meta name="twitter:image" content="./og-image.svg" />
 
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+
+    <!-- Fonts: Inter (text) + JetBrains Mono (labels) — clean, professional, readable -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+
     <link rel="stylesheet" href="./style.css" />
     <script src="./script.js" defer></script>
 
@@ -123,7 +132,7 @@
     </header>
 
     <main id="main-content">
-      <section class="hero section-grid" id="top">
+      <section class="hero" id="top">
         <div class="hero-grid container">
           <div class="hero-copy">
             <p class="eyebrow reveal">
@@ -157,9 +166,6 @@
             data-delay="2"
             aria-label="A visual summary of Nicholas's current focus"
           >
-            <div class="orbit orbit-one"></div>
-            <div class="orbit orbit-two"></div>
-            <div class="hero-grid-lines" aria-hidden="true"></div>
             <div class="signal-card">
               <div class="signal-top">
                 <span class="micro-label">Current focus</span>
@@ -405,14 +411,13 @@
             </p>
           </div>
           <div class="gallery-grid">
-            <!-- Replace each placeholder with the matching file in images/ when ready. -->
+            <!-- Replace each placeholder with a real photo when ready:
+                 swap the <div class="placeholder-art"> for
+                 <img src="images/your-photo.jpg" alt="..." loading="lazy" /> -->
             <figure class="photo-placeholder photo-wide reveal" data-delay="1">
-              <div class="placeholder-art art-blueprint">
-                <span class="blueprint-line line-a"></span
-                ><span class="blueprint-line line-b"></span
-                ><span class="blueprint-dot dot-a"></span
-                ><span class="blueprint-dot dot-b"></span>
-                <span class="placeholder-code">WRO / 2023</span>
+              <div class="placeholder-art">
+                <span class="placeholder-icon" aria-hidden="true"></span>
+                <span class="placeholder-note">Photo coming soon</span>
               </div>
               <figcaption>
                 <span>01</span><strong>WRO 2023</strong
@@ -420,9 +425,9 @@
               </figcaption>
             </figure>
             <figure class="photo-placeholder photo-tall reveal" data-delay="2">
-              <div class="placeholder-art art-grid">
-                <span class="grid-cross"></span
-                ><span class="placeholder-code">WRO / 2025</span>
+              <div class="placeholder-art">
+                <span class="placeholder-icon" aria-hidden="true"></span>
+                <span class="placeholder-note">Photo coming soon</span>
               </div>
               <figcaption>
                 <span>02</span><strong>WRO 2025</strong
@@ -430,9 +435,9 @@
               </figcaption>
             </figure>
             <figure class="photo-placeholder photo-small reveal" data-delay="3">
-              <div class="placeholder-art art-signal">
-                <span class="signal-bars"><i></i><i></i><i></i><i></i></span
-                ><span class="placeholder-code">WRO / 2026</span>
+              <div class="placeholder-art">
+                <span class="placeholder-icon" aria-hidden="true"></span>
+                <span class="placeholder-note">Photo coming soon</span>
               </div>
               <figcaption>
                 <span>03</span><strong>WRO 2026</strong
@@ -440,9 +445,9 @@
               </figcaption>
             </figure>
             <figure class="photo-placeholder photo-small reveal" data-delay="4">
-              <div class="placeholder-art art-paper">
-                <span class="paper-corner"></span
-                ><span class="placeholder-code">ARCHIVE / 01</span>
+              <div class="placeholder-art">
+                <span class="placeholder-icon" aria-hidden="true"></span>
+                <span class="placeholder-note">Photo coming soon</span>
               </div>
               <figcaption>
                 <span>04</span><strong>Certificates</strong
